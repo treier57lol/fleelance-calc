@@ -42,6 +42,8 @@ target_wrapper.*
 # QtCreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+*.pyproject.user
+*.pyproject.user.*
 
 # QtCreator CMake
 CMakeLists.txt.user*
