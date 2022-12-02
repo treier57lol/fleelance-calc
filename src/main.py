@@ -1,4 +1,19 @@
+import os
+from pathlib import Path
+import sys
 import sqlite3
+
+from PySide6.QtGui import QGuiApplication
+from PySide6.QtQml import QQmlApplicationEngine
+
+
+if __name__ == "__main__":
+    app = QGuiApplication(sys.argv)
+    engine = QQmlApplicationEngine()
+    engine.load(os.fspath(Path(__file__).resolve().parent / "main.qml"))
+    if not engine.rootObjects():
+        sys.exit(-1)
+    sys.exit(app.exec_())
 
 connection = sqlite3.connect("Freelance alfa.db")
 rahulolu = False
