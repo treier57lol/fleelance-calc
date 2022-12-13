@@ -29,17 +29,18 @@ Window {
             anchors.topMargin: 25
 
             Text {
-                id: text3
-                x: 295
-                width: 597
+                id: price
                 color: "#ffffff"
-                text: qsTr("$20,000")
+                anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 font.pixelSize: 104
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
+                clip: true
+                fontSizeMode: Text.HorizontalFit
+                anchors.leftMargin: 16
                 layer.mipmap: false
                 layer.smooth: false
                 font.styleName: "Medium"
@@ -65,11 +66,12 @@ Window {
                 id: flow1
                 width: parent.width/2-parent.spacing/2
                 height: parent.height
+                spacing: 0
                 clip: false
 
                 ListView {
                     id: listView
-                    y: search.height
+                    y: search.height+5
                     width: parent.width
                     height: 266
                     spacing: 12
@@ -90,6 +92,22 @@ Window {
                             colorCode: "blue"
                         }
 
+                        ListElement {
+                            name: "Green"
+                            colorCode: "green"
+                        }
+                        ListElement {
+                            name: "Green"
+                            colorCode: "green"
+                        }
+                        ListElement {
+                            name: "Green"
+                            colorCode: "green"
+                        }
+                        ListElement {
+                            name: "Green"
+                            colorCode: "green"
+                        }
                         ListElement {
                             name: "Green"
                             colorCode: "green"
@@ -164,6 +182,8 @@ Window {
                 id: flow2
                 width: parent.width/2-parent.spacing/2
                 height: parent.height
+                spacing: 5
+                flow: Flow.TopToBottom
 
                 Text {
                     id: text1
@@ -171,6 +191,33 @@ Window {
                     text: qsTr("siia tulevad valikud")
                     font.pixelSize: 12
                 }
+
+                MouseArea {
+                    id: mouseArea
+                    width: 100
+                    height: 100
+                    onClicked: {
+                        backend.test(textInput.text)
+                    }
+
+                    Rectangle {
+                        id: rectangle1
+                        color: "#5c5c5c"
+                        anchors.fill: parent
+
+
+                        Text {
+                            id: text4
+                            x: 8
+                            y: 8
+                            width: 63
+                            height: 35
+                            text: qsTr("button")
+                            font.pixelSize: 12
+                        }
+                    }
+                }
+
             }
         }
 
@@ -180,11 +227,18 @@ Window {
 
 
     }
+    Connections {
+        target: backend
+
+        function onSetName(name){
+            price.text = name
+        }
+    }
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.1}D{i:3}D{i:2}D{i:6}D{i:18}D{i:17}D{i:16}D{i:5}D{i:20}D{i:19}
-D{i:4}D{i:1}
+    D{i:0;formeditorZoom:1.1}D{i:3}D{i:2}D{i:6}D{i:22}D{i:21}D{i:20}D{i:5}D{i:24}D{i:27}
+D{i:26}D{i:25}D{i:23}D{i:4}D{i:1}D{i:28}
 }
 ##^##*/
