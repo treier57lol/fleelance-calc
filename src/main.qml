@@ -71,7 +71,7 @@ Window {
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 font.pixelSize: 24
-                anchors.bottomMargin: 16
+                anchors.bottomMargin: 7
                 anchors.leftMargin: 16
             }
         }
@@ -166,9 +166,8 @@ Window {
 
                 Flow {
                     id: flow3
-//                    width: parent.width
+                    width: parent.width
                     height: 40
-                    anchors.horizontalCenter: parent.horizontalCenter
                     spacing: 11
                     flow: Flow.LeftToRight
 
